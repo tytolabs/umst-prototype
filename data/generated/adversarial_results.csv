@@ -1,0 +1,7 @@
+Attack,Soft_Accept,Hard_Accept
+Noise,96.5,100.0
+FGSM,87.2,100.0
+PGD,82.4,100.0
+SPSA,89.1,100.0
+Boundary,91.5,100.0
+Shift,88.0,100.0

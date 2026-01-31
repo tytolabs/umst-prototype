@@ -1,0 +1,34 @@
+{
+    "D1": {
+        "name": "UCI Concrete",
+        "k_factor": 24.0,
+        "k_slag": 0.6,
+        "k_fly_ash": 0.4,
+        "intrinsic_strength": 80.0,
+        "notes": "Calibrated via Bolomey optimization. MAE ~8.9 MPa."
+    },
+    "D2": {
+        "name": "NDT Synthetic",
+        "k_factor": 16.0,
+        "k_slag": 0.6,
+        "k_fly_ash": 0.4,
+        "intrinsic_strength": 60.0,
+        "notes": "Dataset has different cement grade. Calibrated K=16."
+    },
+    "D3": {
+        "name": "Sonay Dataset",
+        "k_factor": 16.0,
+        "k_slag": 0.6,
+        "k_fly_ash": 0.4,
+        "intrinsic_strength": 60.0,
+        "notes": "Similar to D2. Achieved MAE ~5.3 MPa."
+    },
+    "D4": {
+        "name": "RH (Research)",
+        "k_factor": 24.0,
+        "k_slag": 0.6,
+        "k_fly_ash": 0.4,
+        "intrinsic_strength": 80.0,
+        "notes": "Higher cement efficiency. MAE ~18.4 (high variance dataset)."
+    }
+}

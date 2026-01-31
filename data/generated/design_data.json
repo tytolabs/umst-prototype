@@ -1,0 +1,1218 @@
+{
+  "creativity_comparison": [
+    {
+      "admissibility": 100.0,
+      "efficiency": {
+        "avg_co2": 256.9,
+        "avg_cost": 80.1,
+        "avg_fc": 37.2,
+        "avg_kic": 0.208,
+        "co2_per_mpa": 6.91
+      },
+      "eval_budget": 600,
+      "exploration": {
+        "co2_range": [
+          118.0,
+          429.0
+        ],
+        "cost_range": [
+          57.5,
+          103.5
+        ],
+        "fc_range": [
+          15.4,
+          81.0
+        ],
+        "kic_range": [
+          0.087,
+          0.454
+        ],
+        "mix_diversity": 0.3,
+        "objective_coverage": 0.591,
+        "scm_regimes": 6
+      },
+      "method": "Random Search",
+      "n_total": 600,
+      "quality": {
+        "pareto_yield": 26,
+        "pareto_yield_pct": 4.3
+      }
+    },
+    {
+      "admissibility": 100.0,
+      "efficiency": {
+        "avg_co2": 233.0,
+        "avg_cost": 77.5,
+        "avg_fc": 33.9,
+        "avg_kic": 0.19,
+        "co2_per_mpa": 6.87
+      },
+      "eval_budget": 6000,
+      "exploration": {
+        "co2_range": [
+          150.3,
+          333.8
+        ],
+        "cost_range": [
+          68.5,
+          91.4
+        ],
+        "fc_range": [
+          16.9,
+          68.2
+        ],
+        "kic_range": [
+          0.095,
+          0.382
+        ],
+        "mix_diversity": 0.214,
+        "objective_coverage": 0.404,
+        "scm_regimes": 5
+      },
+      "method": "Scalarised EA",
+      "n_total": 120,
+      "quality": {
+        "pareto_yield": 19,
+        "pareto_yield_pct": 15.8
+      }
+    },
+    {
+      "admissibility": 100.0,
+      "efficiency": {
+        "avg_co2": 235.4,
+        "avg_cost": 76.4,
+        "avg_fc": 40.7,
+        "avg_kic": 0.228,
+        "co2_per_mpa": 5.78
+      },
+      "eval_budget": 300,
+      "exploration": {
+        "co2_range": [
+          235.4,
+          235.4
+        ],
+        "cost_range": [
+          74.6,
+          78.2
+        ],
+        "fc_range": [
+          30.0,
+          51.6
+        ],
+        "kic_range": [
+          0.168,
+          0.289
+        ],
+        "mix_diversity": 0.038,
+        "objective_coverage": 0.111,
+        "scm_regimes": 1
+      },
+      "method": "Physics Heuristic",
+      "n_total": 300,
+      "quality": {
+        "pareto_yield": 300,
+        "pareto_yield_pct": 100.0
+      }
+    },
+    {
+      "admissibility": 100.0,
+      "efficiency": {
+        "avg_co2": 258.0,
+        "avg_cost": 84.0,
+        "avg_fc": 67.7,
+        "avg_kic": 0.379,
+        "co2_per_mpa": 3.81
+      },
+      "eval_budget": 91800,
+      "exploration": {
+        "co2_range": [
+          90.8,
+          364.7
+        ],
+        "cost_range": [
+          62.5,
+          111.4
+        ],
+        "fc_range": [
+          18.3,
+          105.3
+        ],
+        "kic_range": [
+          0.103,
+          0.59
+        ],
+        "mix_diversity": 0.134,
+        "objective_coverage": 0.678,
+        "scm_regimes": 9
+      },
+      "method": "DUMSTO-PPO",
+      "n_total": 1800,
+      "quality": {
+        "pareto_yield": 93,
+        "pareto_yield_pct": 5.2
+      }
+    }
+  ],
+  "gate_statistics": [
+    {
+      "gate_accept_rate_pct": 100.0,
+      "gate_accepts": 15000,
+      "gate_rejects": 0,
+      "guardrail_rejects": 0,
+      "mode": "PPO-Balanced"
+    },
+    {
+      "gate_accept_rate_pct": 100.0,
+      "gate_accepts": 15000,
+      "gate_rejects": 0,
+      "guardrail_rejects": 0,
+      "mode": "PPO-Strength"
+    },
+    {
+      "gate_accept_rate_pct": 100.0,
+      "gate_accepts": 15000,
+      "gate_rejects": 0,
+      "guardrail_rejects": 0,
+      "mode": "PPO-Sustainability"
+    },
+    {
+      "gate_accept_rate_pct": 100.0,
+      "gate_accepts": 15000,
+      "gate_rejects": 0,
+      "guardrail_rejects": 0,
+      "mode": "PPO-Cost"
+    },
+    {
+      "gate_accept_rate_pct": 100.0,
+      "gate_accepts": 15000,
+      "gate_rejects": 0,
+      "guardrail_rejects": 0,
+      "mode": "PPO-Durability"
+    },
+    {
+      "gate_accept_rate_pct": 100.0,
+      "gate_accepts": 15000,
+      "gate_rejects": 0,
+      "guardrail_rejects": 0,
+      "mode": "PPO-Printability"
+    }
+  ],
+  "legacy_per_target": [
+    {
+      "admissibility": 100.0,
+      "method": "Random Search",
+      "metrics": {
+        "avg_bond": 2.864286725010191,
+        "avg_co2": 261.5515531812395,
+        "avg_colloidal_potential": -15.0,
+        "avg_cost": 79.63154554367065,
+        "avg_diffusivity": 6.272376764807472e-10,
+        "avg_fracture_kic": 0.1628079411706754,
+        "avg_heat_rate": 5.363910332567556e-7,
+        "avg_itz_porosity": 0.565963335867439,
+        "avg_itz_thickness": 21.5753173828125,
+        "avg_permeability": 8.304948271943755e-8,
+        "avg_scm_pct": 26.464903730499923,
+        "avg_slump_flow": 619.5836693899972,
+        "avg_strength_fc": 29.04695647103446,
+        "avg_suction": 3.213702312537602,
+        "avg_temp_rise": 42.09170225688389,
+        "avg_viscosity": 150.0,
+        "avg_w_c": 0.5144240794891822,
+        "avg_yield_stress": 623.1474091666086
+      },
+      "n_successful": 56,
+      "n_total": 200,
+      "success_rate": 28.000000000000004,
+      "target_mpa": 30.0
+    },
+    {
+      "admissibility": 100.0,
+      "method": "Random Search",
+      "metrics": {
+        "avg_bond": 3.547840169958166,
+        "avg_co2": 268.3000127431509,
+        "avg_colloidal_potential": -15.0,
+        "avg_cost": 82.66667701102593,
+        "avg_diffusivity": 1.2748863338892233e-10,
+        "avg_fracture_kic": 0.22400821101021123,
+        "avg_heat_rate": 4.755895455592989e-7,
+        "avg_itz_porosity": 0.4126916406927882,
+        "avg_itz_thickness": 21.5753173828125,
+        "avg_permeability": 8.320787355227661e-8,
+        "avg_scm_pct": 29.75583176067774,
+        "avg_slump_flow": 624.3979079787796,
+        "avg_strength_fc": 39.965844025483,
+        "avg_suction": 5.074466872859645,
+        "avg_temp_rise": 41.7272573935019,
+        "avg_viscosity": 150.0,
+        "avg_w_c": 0.42927314267715266,
+        "avg_yield_stress": 612.4491008036846
+      },
+      "n_successful": 37,
+      "n_total": 200,
+      "success_rate": 18.5,
+      "target_mpa": 40.0
+    },
+    {
+      "admissibility": 100.0,
+      "method": "Random Search",
+      "metrics": {
+        "avg_bond": 4.110487523286239,
+        "avg_co2": 254.97072966202447,
+        "avg_colloidal_potential": -15.0,
+        "avg_cost": 82.2603414784307,
+        "avg_diffusivity": 4.372810530038086e-11,
+        "avg_fracture_kic": 0.27892186460287677,
+        "avg_heat_rate": 3.96997225605566e-7,
+        "avg_itz_porosity": 0.31654802742211713,
+        "avg_itz_thickness": 21.5753173828125,
+        "avg_permeability": 8.290993337289404e-8,
+        "avg_scm_pct": 31.820454922831967,
+        "avg_slump_flow": 604.1079234247622,
+        "avg_strength_fc": 49.763120568316914,
+        "avg_suction": 6.976548194885254,
+        "avg_temp_rise": 41.50166055430537,
+        "avg_viscosity": 150.0,
+        "avg_w_c": 0.37586002167939,
+        "avg_yield_stress": 657.537961213485
+      },
+      "n_successful": 23,
+      "n_total": 200,
+      "success_rate": 11.5,
+      "target_mpa": 50.0
+    },
+    {
+      "admissibility": 100.0,
+      "method": "Scalarised EA",
+      "metrics": {
+        "avg_bond": 2.9236026108264923,
+        "avg_co2": 196.57008743286133,
+        "avg_colloidal_potential": -15.0,
+        "avg_cost": 74.34828662872314,
+        "avg_diffusivity": 3.3486477132860237e-10,
+        "avg_fracture_kic": 0.16764753870666027,
+        "avg_heat_rate": 4.6279614474009634e-8,
+        "avg_itz_porosity": 0.5137851051986217,
+        "avg_itz_thickness": 21.5753173828125,
+        "avg_permeability": 8.102725868042171e-8,
+        "avg_scm_pct": 41.108589015096335,
+        "avg_slump_flow": 625.9291839599609,
+        "avg_strength_fc": 29.910401582717896,
+        "avg_suction": 3.59494087100029,
+        "avg_temp_rise": 40.50675439834595,
+        "avg_viscosity": 150.0,
+        "avg_w_c": 0.4854361774453439,
+        "avg_yield_stress": 609.046257019043
+      },
+      "n_successful": 8,
+      "n_total": 40,
+      "success_rate": 20.0,
+      "target_mpa": 30.0
+    },
+    {
+      "admissibility": 100.0,
+      "method": "Scalarised EA",
+      "metrics": {
+        "avg_bond": 3.5539846420288086,
+        "avg_co2": 208.34444999694824,
+        "avg_colloidal_potential": -15.0,
+        "avg_cost": 75.77657413482666,
+        "avg_diffusivity": 1.0092909407538597e-10,
+        "avg_fracture_kic": 0.22436857596039772,
+        "avg_heat_rate": 1.106782253623706e-7,
+        "avg_itz_porosity": 0.3976626880466938,
+        "avg_itz_thickness": 21.5753173828125,
+        "avg_permeability": 8.196941525540069e-8,
+        "avg_scm_pct": 35.87959123161702,
+        "avg_slump_flow": 594.5248413085938,
+        "avg_strength_fc": 40.03013753890991,
+        "avg_suction": 5.193334698677063,
+        "avg_temp_rise": 41.083505630493164,
+        "avg_viscosity": 150.0,
+        "avg_w_c": 0.4209237238693702,
+        "avg_yield_stress": 678.8336791992188
+      },
+      "n_successful": 8,
+      "n_total": 40,
+      "success_rate": 20.0,
+      "target_mpa": 40.0
+    },
+    {
+      "admissibility": 100.0,
+      "method": "Scalarised EA",
+      "metrics": {
+        "avg_bond": 4.1635425090789795,
+        "avg_co2": 240.41982460021973,
+        "avg_colloidal_potential": -15.0,
+        "avg_cost": 82.94494342803955,
+        "avg_diffusivity": 3.890161890535149e-11,
+        "avg_fracture_kic": 0.28419405966997147,
+        "avg_heat_rate": 1.5125375085744963e-7,
+        "avg_itz_porosity": 0.3083542250096798,
+        "avg_itz_thickness": 21.5753173828125,
+        "avg_permeability": 8.279234187114071e-8,
+        "avg_scm_pct": 32.43734462351026,
+        "avg_slump_flow": 644.0247917175293,
+        "avg_strength_fc": 50.7037467956543,
+        "avg_suction": 7.136591613292694,
+        "avg_temp_rise": 41.4750189781189,
+        "avg_viscosity": 150.0,
+        "avg_w_c": 0.37130792004804747,
+        "avg_yield_stress": 568.8337860107422
+      },
+      "n_successful": 8,
+      "n_total": 40,
+      "success_rate": 20.0,
+      "target_mpa": 50.0
+    },
+    {
+      "admissibility": 100.0,
+      "method": "Physics Heuristic",
+      "metrics": {
+        "avg_bond": 2.931385040283203,
+        "avg_co2": 235.4250030517578,
+        "avg_colloidal_potential": -15.0,
+        "avg_cost": 74.572265625,
+        "avg_diffusivity": 3.955014649115185e-10,
+        "avg_fracture_kic": 0.16831180453300476,
+        "avg_heat_rate": 1.2429097751009976e-7,
+        "avg_itz_porosity": 0.5400000214576721,
+        "avg_itz_thickness": 21.5753173828125,
+        "avg_permeability": 8.455393185613502e-8,
+        "avg_scm_pct": 30.0,
+        "avg_slump_flow": 543.443603515625,
+        "avg_strength_fc": 30.028915405273438,
+        "avg_suction": 3.427804470062256,
+        "avg_temp_rise": 41.755760192871094,
+        "avg_viscosity": 150.0,
+        "avg_w_c": 0.5,
+        "avg_yield_stress": 792.3475952148438
+      },
+      "n_successful": 100,
+      "n_total": 100,
+      "success_rate": 100.0,
+      "target_mpa": 30.0
+    },
+    {
+      "admissibility": 100.0,
+      "method": "Physics Heuristic",
+      "metrics": {
+        "avg_bond": 3.5810673236846924,
+        "avg_co2": 235.3988800048828,
+        "avg_colloidal_potential": -15.0,
+        "avg_cost": 76.58985137939453,
+        "avg_diffusivity": 1.0007208256501698e-10,
+        "avg_fracture_kic": 0.22692129015922546,
+        "avg_heat_rate": 1.2429097751009976e-7,
+        "avg_itz_porosity": 0.405671626329422,
+        "avg_itz_thickness": 21.5753173828125,
+        "avg_permeability": 8.455393185613502e-8,
+        "avg_scm_pct": 30.0,
+        "avg_slump_flow": 543.443603515625,
+        "avg_strength_fc": 40.485572814941406,
+        "avg_suction": 5.134710311889648,
+        "avg_temp_rise": 41.755760192871094,
+        "avg_viscosity": 150.0,
+        "avg_w_c": 0.4253731343283584,
+        "avg_yield_stress": 792.3475952148438
+      },
+      "n_successful": 100,
+      "n_total": 100,
+      "success_rate": 100.0,
+      "target_mpa": 40.0
+    },
+    {
+      "admissibility": 100.0,
+      "method": "Physics Heuristic",
+      "metrics": {
+        "avg_bond": 4.211639881134033,
+        "avg_co2": 235.37954711914062,
+        "avg_colloidal_potential": -15.0,
+        "avg_cost": 78.15613555908203,
+        "avg_diffusivity": 3.6182619400637606e-11,
+        "avg_fracture_kic": 0.28907310962677,
+        "avg_heat_rate": 1.2429097751009976e-7,
+        "avg_itz_porosity": 0.3062337636947632,
+        "avg_itz_thickness": 21.5753173828125,
+        "avg_permeability": 8.455393185613502e-8,
+        "avg_scm_pct": 30.0,
+        "avg_slump_flow": 543.443603515625,
+        "avg_strength_fc": 51.5742301940918,
+        "avg_suction": 7.270357131958008,
+        "avg_temp_rise": 41.755760192871094,
+        "avg_viscosity": 150.0,
+        "avg_w_c": 0.3701298701298701,
+        "avg_yield_stress": 792.3475952148438
+      },
+      "n_successful": 100,
+      "n_total": 100,
+      "success_rate": 100.0,
+      "target_mpa": 50.0
+    },
+    {
+      "admissibility": 91.0,
+      "method": "PPO-Balanced",
+      "metrics": {
+        "avg_bond": 0.0,
+        "avg_co2": 0.0,
+        "avg_colloidal_potential": 0.0,
+        "avg_cost": 0.0,
+        "avg_diffusivity": 0.0,
+        "avg_fracture_kic": 0.0,
+        "avg_heat_rate": 0.0,
+        "avg_itz_porosity": 0.0,
+        "avg_itz_thickness": 0.0,
+        "avg_permeability": 0.0,
+        "avg_scm_pct": 0.0,
+        "avg_slump_flow": 0.0,
+        "avg_strength_fc": 0.0,
+        "avg_suction": 0.0,
+        "avg_temp_rise": 0.0,
+        "avg_viscosity": 0.0,
+        "avg_w_c": 0.0,
+        "avg_yield_stress": 0.0
+      },
+      "n_successful": 0,
+      "n_total": 100,
+      "success_rate": 0.0,
+      "target_mpa": 30.0
+    },
+    {
+      "admissibility": 96.0,
+      "method": "PPO-Balanced",
+      "metrics": {
+        "avg_bond": 0.0,
+        "avg_co2": 0.0,
+        "avg_colloidal_potential": 0.0,
+        "avg_cost": 0.0,
+        "avg_diffusivity": 0.0,
+        "avg_fracture_kic": 0.0,
+        "avg_heat_rate": 0.0,
+        "avg_itz_porosity": 0.0,
+        "avg_itz_thickness": 0.0,
+        "avg_permeability": 0.0,
+        "avg_scm_pct": 0.0,
+        "avg_slump_flow": 0.0,
+        "avg_strength_fc": 0.0,
+        "avg_suction": 0.0,
+        "avg_temp_rise": 0.0,
+        "avg_viscosity": 0.0,
+        "avg_w_c": 0.0,
+        "avg_yield_stress": 0.0
+      },
+      "n_successful": 0,
+      "n_total": 100,
+      "success_rate": 0.0,
+      "target_mpa": 40.0
+    },
+    {
+      "admissibility": 91.0,
+      "method": "PPO-Balanced",
+      "metrics": {
+        "avg_bond": 0.0,
+        "avg_co2": 0.0,
+        "avg_colloidal_potential": 0.0,
+        "avg_cost": 0.0,
+        "avg_diffusivity": 0.0,
+        "avg_fracture_kic": 0.0,
+        "avg_heat_rate": 0.0,
+        "avg_itz_porosity": 0.0,
+        "avg_itz_thickness": 0.0,
+        "avg_permeability": 0.0,
+        "avg_scm_pct": 0.0,
+        "avg_slump_flow": 0.0,
+        "avg_strength_fc": 0.0,
+        "avg_suction": 0.0,
+        "avg_temp_rise": 0.0,
+        "avg_viscosity": 0.0,
+        "avg_w_c": 0.0,
+        "avg_yield_stress": 0.0
+      },
+      "n_successful": 0,
+      "n_total": 100,
+      "success_rate": 0.0,
+      "target_mpa": 50.0
+    },
+    {
+      "admissibility": 99.0,
+      "method": "PPO-Strength",
+      "metrics": {
+        "avg_bond": 0.0,
+        "avg_co2": 0.0,
+        "avg_colloidal_potential": 0.0,
+        "avg_cost": 0.0,
+        "avg_diffusivity": 0.0,
+        "avg_fracture_kic": 0.0,
+        "avg_heat_rate": 0.0,
+        "avg_itz_porosity": 0.0,
+        "avg_itz_thickness": 0.0,
+        "avg_permeability": 0.0,
+        "avg_scm_pct": 0.0,
+        "avg_slump_flow": 0.0,
+        "avg_strength_fc": 0.0,
+        "avg_suction": 0.0,
+        "avg_temp_rise": 0.0,
+        "avg_viscosity": 0.0,
+        "avg_w_c": 0.0,
+        "avg_yield_stress": 0.0
+      },
+      "n_successful": 0,
+      "n_total": 100,
+      "success_rate": 0.0,
+      "target_mpa": 30.0
+    },
+    {
+      "admissibility": 100.0,
+      "method": "PPO-Strength",
+      "metrics": {
+        "avg_bond": 0.0,
+        "avg_co2": 0.0,
+        "avg_colloidal_potential": 0.0,
+        "avg_cost": 0.0,
+        "avg_diffusivity": 0.0,
+        "avg_fracture_kic": 0.0,
+        "avg_heat_rate": 0.0,
+        "avg_itz_porosity": 0.0,
+        "avg_itz_thickness": 0.0,
+        "avg_permeability": 0.0,
+        "avg_scm_pct": 0.0,
+        "avg_slump_flow": 0.0,
+        "avg_strength_fc": 0.0,
+        "avg_suction": 0.0,
+        "avg_temp_rise": 0.0,
+        "avg_viscosity": 0.0,
+        "avg_w_c": 0.0,
+        "avg_yield_stress": 0.0
+      },
+      "n_successful": 0,
+      "n_total": 100,
+      "success_rate": 0.0,
+      "target_mpa": 40.0
+    },
+    {
+      "admissibility": 100.0,
+      "method": "PPO-Strength",
+      "metrics": {
+        "avg_bond": 0.0,
+        "avg_co2": 0.0,
+        "avg_colloidal_potential": 0.0,
+        "avg_cost": 0.0,
+        "avg_diffusivity": 0.0,
+        "avg_fracture_kic": 0.0,
+        "avg_heat_rate": 0.0,
+        "avg_itz_porosity": 0.0,
+        "avg_itz_thickness": 0.0,
+        "avg_permeability": 0.0,
+        "avg_scm_pct": 0.0,
+        "avg_slump_flow": 0.0,
+        "avg_strength_fc": 0.0,
+        "avg_suction": 0.0,
+        "avg_temp_rise": 0.0,
+        "avg_viscosity": 0.0,
+        "avg_w_c": 0.0,
+        "avg_yield_stress": 0.0
+      },
+      "n_successful": 0,
+      "n_total": 100,
+      "success_rate": 0.0,
+      "target_mpa": 50.0
+    },
+    {
+      "admissibility": 100.0,
+      "method": "PPO-Sustainability",
+      "metrics": {
+        "avg_bond": 2.6539890617132187,
+        "avg_co2": 308.45209407806396,
+        "avg_colloidal_potential": -15.0,
+        "avg_cost": 87.28829157352448,
+        "avg_diffusivity": 1.5084212186614043e-9,
+        "avg_fracture_kic": 0.14513080357573926,
+        "avg_heat_rate": 1.3937733942537278e-6,
+        "avg_itz_porosity": 0.6691022561863065,
+        "avg_itz_thickness": 21.5753173828125,
+        "avg_permeability": 8.482941626919427e-8,
+        "avg_scm_pct": 7.74311859337499,
+        "avg_slump_flow": 696.4278135299683,
+        "avg_strength_fc": 25.893135964870453,
+        "avg_suction": 2.4622339569032192,
+        "avg_temp_rise": 44.116262912750244,
+        "avg_viscosity": 150.0,
+        "avg_w_c": 0.5717234775423997,
+        "avg_yield_stress": 452.38264751434326
+      },
+      "n_successful": 64,
+      "n_total": 100,
+      "success_rate": 64.0,
+      "target_mpa": 30.0
+    },
+    {
+      "admissibility": 100.0,
+      "method": "PPO-Sustainability",
+      "metrics": {
+        "avg_bond": 0.0,
+        "avg_co2": 0.0,
+        "avg_colloidal_potential": 0.0,
+        "avg_cost": 0.0,
+        "avg_diffusivity": 0.0,
+        "avg_fracture_kic": 0.0,
+        "avg_heat_rate": 0.0,
+        "avg_itz_porosity": 0.0,
+        "avg_itz_thickness": 0.0,
+        "avg_permeability": 0.0,
+        "avg_scm_pct": 0.0,
+        "avg_slump_flow": 0.0,
+        "avg_strength_fc": 0.0,
+        "avg_suction": 0.0,
+        "avg_temp_rise": 0.0,
+        "avg_viscosity": 0.0,
+        "avg_w_c": 0.0,
+        "avg_yield_stress": 0.0
+      },
+      "n_successful": 0,
+      "n_total": 100,
+      "success_rate": 0.0,
+      "target_mpa": 40.0
+    },
+    {
+      "admissibility": 100.0,
+      "method": "PPO-Sustainability",
+      "metrics": {
+        "avg_bond": 0.0,
+        "avg_co2": 0.0,
+        "avg_colloidal_potential": 0.0,
+        "avg_cost": 0.0,
+        "avg_diffusivity": 0.0,
+        "avg_fracture_kic": 0.0,
+        "avg_heat_rate": 0.0,
+        "avg_itz_porosity": 0.0,
+        "avg_itz_thickness": 0.0,
+        "avg_permeability": 0.0,
+        "avg_scm_pct": 0.0,
+        "avg_slump_flow": 0.0,
+        "avg_strength_fc": 0.0,
+        "avg_suction": 0.0,
+        "avg_temp_rise": 0.0,
+        "avg_viscosity": 0.0,
+        "avg_w_c": 0.0,
+        "avg_yield_stress": 0.0
+      },
+      "n_successful": 0,
+      "n_total": 100,
+      "success_rate": 0.0,
+      "target_mpa": 50.0
+    },
+    {
+      "admissibility": 93.0,
+      "method": "PPO-Cost",
+      "metrics": {
+        "avg_bond": 0.0,
+        "avg_co2": 0.0,
+        "avg_colloidal_potential": 0.0,
+        "avg_cost": 0.0,
+        "avg_diffusivity": 0.0,
+        "avg_fracture_kic": 0.0,
+        "avg_heat_rate": 0.0,
+        "avg_itz_porosity": 0.0,
+        "avg_itz_thickness": 0.0,
+        "avg_permeability": 0.0,
+        "avg_scm_pct": 0.0,
+        "avg_slump_flow": 0.0,
+        "avg_strength_fc": 0.0,
+        "avg_suction": 0.0,
+        "avg_temp_rise": 0.0,
+        "avg_viscosity": 0.0,
+        "avg_w_c": 0.0,
+        "avg_yield_stress": 0.0
+      },
+      "n_successful": 0,
+      "n_total": 100,
+      "success_rate": 0.0,
+      "target_mpa": 30.0
+    },
+    {
+      "admissibility": 93.0,
+      "method": "PPO-Cost",
+      "metrics": {
+        "avg_bond": 0.0,
+        "avg_co2": 0.0,
+        "avg_colloidal_potential": 0.0,
+        "avg_cost": 0.0,
+        "avg_diffusivity": 0.0,
+        "avg_fracture_kic": 0.0,
+        "avg_heat_rate": 0.0,
+        "avg_itz_porosity": 0.0,
+        "avg_itz_thickness": 0.0,
+        "avg_permeability": 0.0,
+        "avg_scm_pct": 0.0,
+        "avg_slump_flow": 0.0,
+        "avg_strength_fc": 0.0,
+        "avg_suction": 0.0,
+        "avg_temp_rise": 0.0,
+        "avg_viscosity": 0.0,
+        "avg_w_c": 0.0,
+        "avg_yield_stress": 0.0
+      },
+      "n_successful": 0,
+      "n_total": 100,
+      "success_rate": 0.0,
+      "target_mpa": 40.0
+    },
+    {
+      "admissibility": 91.0,
+      "method": "PPO-Cost",
+      "metrics": {
+        "avg_bond": 0.0,
+        "avg_co2": 0.0,
+        "avg_colloidal_potential": 0.0,
+        "avg_cost": 0.0,
+        "avg_diffusivity": 0.0,
+        "avg_fracture_kic": 0.0,
+        "avg_heat_rate": 0.0,
+        "avg_itz_porosity": 0.0,
+        "avg_itz_thickness": 0.0,
+        "avg_permeability": 0.0,
+        "avg_scm_pct": 0.0,
+        "avg_slump_flow": 0.0,
+        "avg_strength_fc": 0.0,
+        "avg_suction": 0.0,
+        "avg_temp_rise": 0.0,
+        "avg_viscosity": 0.0,
+        "avg_w_c": 0.0,
+        "avg_yield_stress": 0.0
+      },
+      "n_successful": 0,
+      "n_total": 100,
+      "success_rate": 0.0,
+      "target_mpa": 50.0
+    },
+    {
+      "admissibility": 100.0,
+      "method": "PPO-Durability",
+      "metrics": {
+        "avg_bond": 2.770750903463983,
+        "avg_co2": 327.7557507799817,
+        "avg_colloidal_potential": -15.0,
+        "avg_cost": 84.11339133126395,
+        "avg_diffusivity": 1.2809849977294527e-9,
+        "avg_fracture_kic": 0.15478404969364018,
+        "avg_heat_rate": 2.418737267362303e-6,
+        "avg_itz_porosity": 0.6546439280757657,
+        "avg_itz_thickness": 21.5753173828125,
+        "avg_permeability": 8.545821403485407e-8,
+        "avg_scm_pct": 0.0,
+        "avg_slump_flow": 615.1873093642198,
+        "avg_strength_fc": 27.615394790451248,
+        "avg_suction": 2.5630187276121856,
+        "avg_temp_rise": 44.913246154785156,
+        "avg_viscosity": 150.0,
+        "avg_w_c": 0.5636910678504342,
+        "avg_yield_stress": 632.9171146541447
+      },
+      "n_successful": 77,
+      "n_total": 100,
+      "success_rate": 77.0,
+      "target_mpa": 30.0
+    },
+    {
+      "admissibility": 100.0,
+      "method": "PPO-Durability",
+      "metrics": {
+        "avg_bond": 0.0,
+        "avg_co2": 0.0,
+        "avg_colloidal_potential": 0.0,
+        "avg_cost": 0.0,
+        "avg_diffusivity": 0.0,
+        "avg_fracture_kic": 0.0,
+        "avg_heat_rate": 0.0,
+        "avg_itz_porosity": 0.0,
+        "avg_itz_thickness": 0.0,
+        "avg_permeability": 0.0,
+        "avg_scm_pct": 0.0,
+        "avg_slump_flow": 0.0,
+        "avg_strength_fc": 0.0,
+        "avg_suction": 0.0,
+        "avg_temp_rise": 0.0,
+        "avg_viscosity": 0.0,
+        "avg_w_c": 0.0,
+        "avg_yield_stress": 0.0
+      },
+      "n_successful": 0,
+      "n_total": 100,
+      "success_rate": 0.0,
+      "target_mpa": 40.0
+    },
+    {
+      "admissibility": 100.0,
+      "method": "PPO-Durability",
+      "metrics": {
+        "avg_bond": 0.0,
+        "avg_co2": 0.0,
+        "avg_colloidal_potential": 0.0,
+        "avg_cost": 0.0,
+        "avg_diffusivity": 0.0,
+        "avg_fracture_kic": 0.0,
+        "avg_heat_rate": 0.0,
+        "avg_itz_porosity": 0.0,
+        "avg_itz_thickness": 0.0,
+        "avg_permeability": 0.0,
+        "avg_scm_pct": 0.0,
+        "avg_slump_flow": 0.0,
+        "avg_strength_fc": 0.0,
+        "avg_suction": 0.0,
+        "avg_temp_rise": 0.0,
+        "avg_viscosity": 0.0,
+        "avg_w_c": 0.0,
+        "avg_yield_stress": 0.0
+      },
+      "n_successful": 0,
+      "n_total": 100,
+      "success_rate": 0.0,
+      "target_mpa": 50.0
+    },
+    {
+      "admissibility": 95.0,
+      "method": "PPO-Printability",
+      "metrics": {
+        "avg_bond": 2.9966131448745728,
+        "avg_co2": 111.60514831542969,
+        "avg_colloidal_potential": -15.0,
+        "avg_cost": 74.08208465576172,
+        "avg_diffusivity": 1.0056920921042156e-10,
+        "avg_fracture_kic": 0.1739792376756668,
+        "avg_heat_rate": 5.989840290432369e-10,
+        "avg_itz_porosity": 0.3928126096725464,
+        "avg_itz_thickness": 21.5753173828125,
+        "avg_permeability": 7.944534985426799e-8,
+        "avg_scm_pct": 80.0,
+        "avg_slump_flow": 719.5599365234375,
+        "avg_strength_fc": 31.040054321289062,
+        "avg_suction": 5.1603875160217285,
+        "avg_temp_rise": 35.76451873779297,
+        "avg_viscosity": 150.0,
+        "avg_w_c": 0.4182292307604081,
+        "avg_yield_stress": 400.9779357910156
+      },
+      "n_successful": 2,
+      "n_total": 100,
+      "success_rate": 2.0,
+      "target_mpa": 30.0
+    },
+    {
+      "admissibility": 92.0,
+      "method": "PPO-Printability",
+      "metrics": {
+        "avg_bond": 3.4251210689544678,
+        "avg_co2": 175.76214599609375,
+        "avg_colloidal_potential": -15.0,
+        "avg_cost": 80.2063217163086,
+        "avg_diffusivity": 7.408858943014351e-11,
+        "avg_fracture_kic": 0.212331622838974,
+        "avg_heat_rate": 5.985425488574947e-9,
+        "avg_itz_porosity": 0.3685005009174347,
+        "avg_itz_thickness": 21.5753173828125,
+        "avg_permeability": 8.10691105357364e-8,
+        "avg_scm_pct": 58.76029276823947,
+        "avg_slump_flow": 716.129150390625,
+        "avg_strength_fc": 37.88259506225586,
+        "avg_suction": 5.6624627113342285,
+        "avg_temp_rise": 38.441986083984375,
+        "avg_viscosity": 150.0,
+        "avg_w_c": 0.4047224977746636,
+        "avg_yield_stress": 408.6018981933594
+      },
+      "n_successful": 1,
+      "n_total": 100,
+      "success_rate": 1.0,
+      "target_mpa": 40.0
+    },
+    {
+      "admissibility": 91.0,
+      "method": "PPO-Printability",
+      "metrics": {
+        "avg_bond": 0.0,
+        "avg_co2": 0.0,
+        "avg_colloidal_potential": 0.0,
+        "avg_cost": 0.0,
+        "avg_diffusivity": 0.0,
+        "avg_fracture_kic": 0.0,
+        "avg_heat_rate": 0.0,
+        "avg_itz_porosity": 0.0,
+        "avg_itz_thickness": 0.0,
+        "avg_permeability": 0.0,
+        "avg_scm_pct": 0.0,
+        "avg_slump_flow": 0.0,
+        "avg_strength_fc": 0.0,
+        "avg_suction": 0.0,
+        "avg_temp_rise": 0.0,
+        "avg_viscosity": 0.0,
+        "avg_w_c": 0.0,
+        "avg_yield_stress": 0.0
+      },
+      "n_successful": 0,
+      "n_total": 100,
+      "success_rate": 0.0,
+      "target_mpa": 50.0
+    }
+  ],
+  "metadata": {
+    "approach": "Train-to-plateau then evaluate; creativity metrics pooled across targets",
+    "budgets": {
+      "physics_heuristic": 300,
+      "ppo_per_mode": 15300,
+      "ppo_total": 91800,
+      "random_search": 600,
+      "scalarised_ea": 6000
+    },
+    "engine": "PhysicsKernel (16 engines, all enabled)",
+    "eval_steps": 30,
+    "n_eval": 100,
+    "n_metrics": 17,
+    "reward_modes": [
+      "PPO-Balanced",
+      "PPO-Strength",
+      "PPO-Sustainability",
+      "PPO-Cost",
+      "PPO-Durability",
+      "PPO-Printability"
+    ],
+    "targets": [
+      30.0,
+      40.0,
+      50.0
+    ],
+    "train_steps_per_episode": 30,
+    "training_episodes": 200,
+    "version": "7.0.0-creativity-fair"
+  },
+  "ppo_mode_breakdown": [
+    {
+      "admissibility": 100.0,
+      "efficiency": {
+        "avg_co2": 178.7,
+        "avg_cost": 70.8,
+        "avg_fc": 86.2,
+        "avg_kic": 0.483,
+        "co2_per_mpa": 2.07
+      },
+      "eval_budget": 15300,
+      "exploration": {
+        "co2_range": [
+          106.9,
+          320.9
+        ],
+        "cost_range": [
+          62.5,
+          98.9
+        ],
+        "fc_range": [
+          76.2,
+          105.3
+        ],
+        "kic_range": [
+          0.427,
+          0.59
+        ],
+        "mix_diversity": 0.134,
+        "objective_coverage": 0.336,
+        "scm_regimes": 6
+      },
+      "method": "PPO-Balanced",
+      "n_total": 300,
+      "quality": {
+        "pareto_yield": 55,
+        "pareto_yield_pct": 18.3
+      }
+    },
+    {
+      "admissibility": 100.0,
+      "efficiency": {
+        "avg_co2": 320.7,
+        "avg_cost": 87.4,
+        "avg_fc": 98.8,
+        "avg_kic": 0.554,
+        "co2_per_mpa": 3.25
+      },
+      "eval_budget": 15300,
+      "exploration": {
+        "co2_range": [
+          286.8,
+          357.8
+        ],
+        "cost_range": [
+          78.0,
+          97.6
+        ],
+        "fc_range": [
+          45.4,
+          105.3
+        ],
+        "kic_range": [
+          0.255,
+          0.59
+        ],
+        "mix_diversity": 0.039,
+        "objective_coverage": 0.369,
+        "scm_regimes": 2
+      },
+      "method": "PPO-Strength",
+      "n_total": 300,
+      "quality": {
+        "pareto_yield": 6,
+        "pareto_yield_pct": 2.0
+      }
+    },
+    {
+      "admissibility": 100.0,
+      "efficiency": {
+        "avg_co2": 319.2,
+        "avg_cost": 87.2,
+        "avg_fc": 24.8,
+        "avg_kic": 0.139,
+        "co2_per_mpa": 12.87
+      },
+      "eval_budget": 15300,
+      "exploration": {
+        "co2_range": [
+          247.9,
+          364.7
+        ],
+        "cost_range": [
+          76.2,
+          98.0
+        ],
+        "fc_range": [
+          22.9,
+          28.5
+        ],
+        "kic_range": [
+          0.128,
+          0.16
+        ],
+        "mix_diversity": 0.082,
+        "objective_coverage": 0.137,
+        "scm_regimes": 3
+      },
+      "method": "PPO-Sustainability",
+      "n_total": 300,
+      "quality": {
+        "pareto_yield": 13,
+        "pareto_yield_pct": 4.3
+      }
+    },
+    {
+      "admissibility": 100.0,
+      "efficiency": {
+        "avg_co2": 246.1,
+        "avg_cost": 97.7,
+        "avg_fc": 94.0,
+        "avg_kic": 0.527,
+        "co2_per_mpa": 2.62
+      },
+      "eval_budget": 15300,
+      "exploration": {
+        "co2_range": [
+          159.7,
+          337.9
+        ],
+        "cost_range": [
+          79.3,
+          111.4
+        ],
+        "fc_range": [
+          82.4,
+          105.3
+        ],
+        "kic_range": [
+          0.462,
+          0.59
+        ],
+        "mix_diversity": 0.164,
+        "objective_coverage": 0.276,
+        "scm_regimes": 7
+      },
+      "method": "PPO-Cost",
+      "n_total": 300,
+      "quality": {
+        "pareto_yield": 48,
+        "pareto_yield_pct": 16.0
+      }
+    },
+    {
+      "admissibility": 100.0,
+      "efficiency": {
+        "avg_co2": 325.7,
+        "avg_cost": 83.2,
+        "avg_fc": 25.6,
+        "avg_kic": 0.144,
+        "co2_per_mpa": 12.7
+      },
+      "eval_budget": 15300,
+      "exploration": {
+        "co2_range": [
+          288.8,
+          362.4
+        ],
+        "cost_range": [
+          75.1,
+          94.1
+        ],
+        "fc_range": [
+          22.9,
+          29.5
+        ],
+        "kic_range": [
+          0.128,
+          0.165
+        ],
+        "mix_diversity": 0.025,
+        "objective_coverage": 0.11,
+        "scm_regimes": 2
+      },
+      "method": "PPO-Durability",
+      "n_total": 300,
+      "quality": {
+        "pareto_yield": 24,
+        "pareto_yield_pct": 8.0
+      }
+    },
+    {
+      "admissibility": 100.0,
+      "efficiency": {
+        "avg_co2": 157.6,
+        "avg_cost": 77.8,
+        "avg_fc": 76.4,
+        "avg_kic": 0.428,
+        "co2_per_mpa": 2.06
+      },
+      "eval_budget": 15300,
+      "exploration": {
+        "co2_range": [
+          90.8,
+          277.8
+        ],
+        "cost_range": [
+          63.3,
+          92.2
+        ],
+        "fc_range": [
+          18.3,
+          97.0
+        ],
+        "kic_range": [
+          0.103,
+          0.544
+        ],
+        "mix_diversity": 0.18,
+        "objective_coverage": 0.549,
+        "scm_regimes": 7
+      },
+      "method": "PPO-Printability",
+      "n_total": 300,
+      "quality": {
+        "pareto_yield": 41,
+        "pareto_yield_pct": 13.7
+      }
+    }
+  ]
+}

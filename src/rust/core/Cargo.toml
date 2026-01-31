@@ -1,0 +1,28 @@
+[package]
+name = "umst-core"
+version = "0.1.0"
+edition = "2021"
+authors = ["Santhosh Shyamsundar", "Prabhu S.", "Studio Tyto"]
+description = "Physics-Informed core for Unified Material-State Tensor research."
+license = "MIT"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+petgraph = { version = "0.6", features = ["serde-1"] }
+nalgebra = { version = "0.32", features = ["serde-serialize"] }
+parry3d = "0.13"
+wasm-bindgen = "0.2"
+reqwest = { version = "0.11", features = ["blocking", "json"] }
+# burn = { version = "0.13.0", features = ["wgpu", "train"] }
+# bincode = { version = "2.0.0-rc.3", features = ["serde"] }
+rand = "0.8"
+
+instant = "0.1"
+serde-wasm-bindgen = "0.6"
+csv = "1.2"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+

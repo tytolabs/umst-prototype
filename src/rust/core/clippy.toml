@@ -1,0 +1,30 @@
+# Clippy configuration for DUMSTO
+# Reproducibility Package
+
+# Disallowed lints (will cause CI to fail)
+disallowed-methods = []
+
+# Warning lints
+warn-on-all-warnings = true
+
+# Performance checks
+check-private-items = true
+
+# Style preferences
+enum-variant-name-threshold = 10
+function-params-limit = 7
+single-char-binding-names-threshold = 5
+
+# Documentation
+check-doc-valid-idents = true
+
+# Complexity limits
+cognitive-complexity-threshold = 25
+too-many-lines-threshold = 200
+
+# Allow some reasonable patterns
+allow-expect-in-tests = true
+allow-unwrap-in-tests = true
+
+# Scientific computing allowances
+allow-mixed-case-hex-literals = true  # For scientific constants
