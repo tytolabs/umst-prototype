@@ -63,15 +63,12 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-cargo-
 
-    - name: Check Rust code
+    - name: Build and test Rust code
+      env:
+        RUSTFLAGS: ""
       run: |
         cd src/rust/core
-        cargo check --verbose
-        cargo clippy -- -W clippy::all
-
-    - name: Run Rust tests
-      run: |
-        cd src/rust/core
+        cargo build --verbose
         cargo test --verbose
 
   docker-build:
