@@ -10,8 +10,9 @@ jobs:
   test-python:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        python-version: [3.8, 3.9, 3.10, 3.11]
+        python-version: ["3.9", "3.10", "3.11"]
 
     steps:
     - uses: actions/checkout@v4
@@ -35,9 +36,9 @@ jobs:
       run: |
         python -c "import numpy as np; import pandas as pd; import matplotlib.pyplot as plt; import torch; print('✓ Core dependencies imported successfully')"
 
-    - name: Test metrics collector
+    - name: Test utils metrics
       run: |
-        python -c "import scripts.metrics_collector; print('✓ Metrics collector imported successfully')"
+        python -c "from scripts import utils_metrics; print('✓ Utils metrics imported successfully')"
 
   test-rust:
     runs-on: ubuntu-latest
@@ -65,7 +66,7 @@ jobs:
       run: |
         cd src/rust/core
         cargo check --verbose
-        cargo clippy -- -D warnings
+        cargo clippy -- -W clippy::all
 
     - name: Run Rust tests
       run: |

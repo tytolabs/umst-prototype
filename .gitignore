@@ -22,9 +22,7 @@ target/
 Thumbs.db
 
 # Logs
-*.log
-
-# Environment/Secrets (safety)
+*.log# Environment/Secrets (safety)
 .env
 .env.*
 *.pem

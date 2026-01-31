@@ -24,5 +24,5 @@ COPY . .
 # Build Rust kernel
 RUN cd src/rust/core && cargo build --release
 
-# Default command - run platform test then benchmark
-CMD ["bash", "-c", "python tools/7_RUN_EXPERIMENTS.py platform && python tools/7_RUN_EXPERIMENTS.py quick"]
+# Default command - verify installation
+CMD ["bash", "-c", "python --version && cargo --version && echo '✓ UMST environment ready'"]
