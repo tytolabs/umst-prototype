@@ -50,6 +50,7 @@ jobs:
       uses: actions-rust-lang/setup-rust-toolchain@v1
       with:
         toolchain: stable
+        rustflags: ""
 
     - name: Cache Cargo dependencies
       uses: actions/cache@v3
@@ -143,6 +144,7 @@ jobs:
       uses: actions-rust-lang/setup-rust-toolchain@v1
       with:
         toolchain: stable
+        rustflags: ""
 
     - name: Build Rust kernel
       run: |

@@ -329,7 +329,7 @@ impl PPOAgent {
 
                 // Value loss: clipped value objective (PPO2)
                 let value_pred = self.estimate_value(&exp.state);
-                let value_pred_clipped = exp.state[0]
+                let _value_pred_clipped = exp.state[0]
                     + (value_pred - exp.state[0]).clamp(-self.config.epsilon, self.config.epsilon); // Should use stored value not state[0] but sticking to simple clip for now or just MSE
 
                 // Standard PPO Value Clip:
