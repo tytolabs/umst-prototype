@@ -1,6 +1,6 @@
 # UMST Prototype: Physics-Gated AI for Material Design
 
-![Teaser Figure](results/plots/fig1_teaser.png)
+![Teaser Figure](results/plots/fig1_teaser.png?raw=true)
 
 ## Overview
 This repository contains the official implementation of the **Differentiable Unified Material-State Tensor Optimization (DUMSTO)** framework.
