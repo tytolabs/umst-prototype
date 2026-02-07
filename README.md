@@ -82,6 +82,16 @@ We utilize a **Composite Global Benchmark** ($N=16,146$) merging four sources:
 
 All data is pre-processed and located in `data/`.
 
+## Research Publications
+
+For the complete scientific and mathematical foundations of UMST:
+
+- **[Scientific and Mathematical Foundations](https://github.com/studiotyto/umst-research/blob/main/foundations/UMST_Science_Mathematics.pdf)** (71 pages)  
+  Complete theoretical derivation, thermodynamic proofs, and empirical validation across 16,146 samples.
+
+- **[Technical Summary](https://github.com/studiotyto/umst-research/blob/main/foundations/UMST_Technical_Summary.pdf)** (8 pages)  
+  Concise overview of the hybrid architecture, physics-gated AI approach, and benchmark results.
+
 ## Citation
 If you use this code or dataset, please cite:
 ```bibtex

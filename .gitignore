@@ -19,12 +19,8 @@ target/
 
 # OS
 .DS_Store
-Thumbs.db
-
-# Logs
-*.log
-
-# Environment/Secrets (safety)
+Thumbs.db# Logs
+*.log# Environment/Secrets (safety)
 .env
 .env.*
 *.pem
