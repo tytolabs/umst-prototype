@@ -15,9 +15,7 @@ target/
 .idea/
 .vscode/
 *.swp
-*.swo
-
-# OS
+*.swo# OS
 .DS_Store
 Thumbs.db# Logs
 *.log# Environment/Secrets (safety)
