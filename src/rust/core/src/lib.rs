@@ -26,6 +26,8 @@ pub mod tensors;
 pub mod tests_physics;
 // pub mod trust;
 // pub mod validation;
+pub mod metrics;
+pub mod vision;
 
 // Re-export core types
 pub use science::rheology::CartridgeRegistry;

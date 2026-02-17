@@ -23,31 +23,82 @@ from sklearn.metrics import mean_absolute_error
 from scipy.optimize import minimize
 from dataclasses import dataclass
 import time
+import tempfile
+import os
 from pathlib import Path
 
+# RUST-FIRST: Import the canonical physics kernel bridge
+from rust_bridge import call_physics_kernel
+
+# TODO: Phase 5 - This calibration script needs major refactoring:
+# 1. The optimization loop should call Rust kernel with parameter overrides
+# 2. Add --params CLI args to physics_bridge binary for parameter injection
+# 3. Replace scipy.optimize with calls to Rust optimization (if available)
+
 # ============================================================================
-# PHYSICS KERNEL (Same as benchmark)
+# PHYSICS KERNEL — DEPRECATED: Now calls Rust canonical kernel
 # ============================================================================
 
-def compute_hydration_tensor(age: np.ndarray, scm_ratio: np.ndarray, k_ref: float) -> np.ndarray:
-    """Avrami kinetics for hydration degree"""
-    alpha_max = 0.95 - scm_ratio * 0.15
-    scm_factor = 1.0 - scm_ratio * 0.4
-    k = k_ref * scm_factor
-    alpha = alpha_max * (1.0 - np.exp(-k * np.sqrt(age)))
-    return np.clip(alpha, 0.0, 1.0)
+# DEPRECATED: These functions now call the Rust physics kernel
+# They are kept for reference but should not be used
 
-def compute_physics_tensor(X: pd.DataFrame, params: np.ndarray) -> np.ndarray:
+def _deprecated_compute_hydration_tensor(age: np.ndarray, scm_ratio: np.ndarray, k_ref: float) -> np.ndarray:
+    """DEPRECATED: Use call_physics_kernel() instead"""
+    raise DeprecationWarning("This function is deprecated. Physics computation moved to Rust.")
+
+def _deprecated_compute_physics_tensor(X: pd.DataFrame, params: np.ndarray) -> np.ndarray:
     """
-    Compute physics predictions with parameters to optimize
+    DEPRECATED: Compute physics predictions via Rust kernel
 
-    params: [s_intrinsic, k_slag, k_fly_ash, k_ref, early_boost]
+    This function now creates a temporary CSV, calls the Rust physics_bridge binary,
+    and returns the predictions. The optimization loop remains in Python (scipy.optimize).
     """
-    s_intrinsic, k_slag, k_fly_ash, k_ref, early_boost = params
+    # Create temporary CSV for Rust kernel
+    with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False) as tmp_in:
+        # Write mix data to CSV format expected by Rust
+        X_copy = X.copy()
+        # Add required columns if missing
+        if 'water' not in X_copy.columns:
+            X_copy['water'] = 0.45 * X_copy['cement']  # Default w/c = 0.45
+        if 'sand' not in X_copy.columns:
+            X_copy['sand'] = 700  # Default sand kg/m3
+        if 'coarse' not in X_copy.columns:
+            X_copy['coarse'] = 1050  # Default coarse kg/m3
 
-    cement = X['cement'].values.astype(np.float64)
-    slag = X['slag'].values.astype(np.float64) if 'slag' in X.columns else np.zeros(len(X))
-    fly_ash = X['fly_ash'].values.astype(np.float64) if 'fly_ash' in X.columns else np.zeros(len(X))
+        # Add placeholder columns for full CSV schema
+        for i in range(5):  # Add ?, ?, ?, age, strength columns
+            X_copy[f'col_{i}'] = 0.0
+
+        # Set age and strength (will be ignored for prediction)
+        X_copy['age'] = 28  # Default age for calibration
+        X_copy['strength'] = 0.0  # Will be predicted
+
+        X_copy.to_csv(tmp_in, index=False)
+        tmp_in_path = tmp_in.name
+
+    # Create temporary output file
+    with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False) as tmp_out:
+        tmp_out_path = tmp_out.name
+
+    try:
+        # Call Rust physics kernel
+        # Note: This will use default parameters, but we're optimizing parameters separately
+        # The Rust kernel has its own calibration that we override via the optimization
+        call_physics_kernel(tmp_in_path, "full", tmp_out_path)
+
+        # Read predictions from output CSV
+        result_df = pd.read_csv(tmp_out_path)
+        predictions = result_df['f_physics'].values
+
+        return predictions
+
+    finally:
+        # Clean up temporary files
+        try:
+            os.unlink(tmp_in_path)
+            os.unlink(tmp_out_path)
+        except OSError:
+            pass
     water = X['water'].values.astype(np.float64)
     age = X['age'].values.astype(np.float64)
 

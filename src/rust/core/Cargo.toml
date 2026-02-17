@@ -14,15 +14,39 @@ nalgebra = { version = "0.32", features = ["serde-serialize"] }
 parry3d = "0.13"
 wasm-bindgen = "0.2"
 reqwest = { version = "0.11", features = ["blocking", "json"] }
-# burn = { version = "0.13.0", features = ["wgpu", "train"] }
+# burn = { version = "0.12.1", features = ["wgpu", "train"] }
+# burn-ndarray = "0.12.1"
 # bincode = { version = "2.0.0-rc.3", features = ["serde"] }
 rand = "0.8"
 
 instant = "0.1"
 serde-wasm-bindgen = "0.6"
 csv = "1.2"
+clap = { version = "4.0", features = ["derive"] }
+chrono = { version = "0.4", features = ["serde"] }
+tokio = { version = "1.0", features = ["full"] }
 
 [lib]
 crate-type = ["cdylib", "rlib"]
+
+[[bin]]
+name = "benchmark"
+path = "src/bin/benchmark.rs"
+
+[[bin]]
+name = "calibrate"
+path = "src/bin/calibrate.rs"
+
+[[bin]]
+name = "pareto_sweep"
+path = "src/bin/pareto_sweep.rs"
+
+[[bin]]
+name = "ap01_capture"
+path = "src/bin/ap01_capture.rs"
+
+[[bin]]
+name = "vision_analyzer"
+path = "src/bin/vision_analyzer.rs"
 
 

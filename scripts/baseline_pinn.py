@@ -29,6 +29,9 @@ import os
 from pathlib import Path
 import time
 
+# RUST-FIRST: Import canonical physics kernel (for future migration)
+from rust_bridge import call_physics_kernel
+
 warnings.filterwarnings('ignore')
 
 # --- PATHS ---

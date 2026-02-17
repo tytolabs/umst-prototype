@@ -47,43 +47,31 @@ except ImportError:
 
 # ============================================================================
 # 1. RUST BRIDGE INTERFACE
+# RUST-FIRST: Import canonical physics kernel bridge
+from rust_bridge import call_physics_kernel
+
 # ============================================================================
 
 def run_rust_bridge(dataset_id: str):
-    """Executes Rust Physics Kernel to get f_physics and internal states"""
-    # Fix path relative to script location
+    """
+    Executes Rust Physics Kernel to get f_physics and internal states.
+
+    Now uses the canonical rust_bridge helper instead of hardcoded paths.
+    """
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    bin_path = os.path.join(script_dir, "../src/rust/core/target/release/physics_bridge")
-    
-    if not os.path.exists(bin_path):
-        # Fallback to debug
-        bin_path = os.path.join(script_dir, "../src/rust/core/target/debug/physics_bridge")
-    
-    if not os.path.exists(bin_path):
-        raise FileNotFoundError(f"Rust binary not found at {bin_path}")
-        
     data_path = os.path.join(script_dir, f"../data/dataset_{dataset_id}.csv")
     csv_output = os.path.join(script_dir, f"temp_bridge_{dataset_id}.csv")
-    
-    cmd = [
-        bin_path,
-        "--csv", data_path,
-        "--dataset", dataset_id,
-        "--output", csv_output
-    ]
-    
+
     start_time = time.time()
-    result = subprocess.run(cmd, capture_output=True, text=True)
+    # Use canonical Rust kernel via helper
+    call_physics_kernel(data_path, dataset_id, csv_output)
     latency_ms = (time.time() - start_time) * 1000
-    
-    if result.returncode != 0:
-        raise RuntimeError(f"Rust Bridge Failed: {result.stderr}")
-        
+
     df = pd.read_csv(csv_output)
-    
+
     # Per sample latency (approx)
     latency_per_sample = latency_ms / len(df) if len(df) > 0 else 0
-    
+
     # Cleanup done in main loop if needed, keeping for now
     return df, latency_per_sample, csv_output
 
