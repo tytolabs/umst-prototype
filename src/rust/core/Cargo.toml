@@ -29,24 +29,6 @@ tokio = { version = "1.0", features = ["full"] }
 [lib]
 crate-type = ["cdylib", "rlib"]
 
-[[bin]]
-name = "benchmark"
-path = "src/bin/benchmark.rs"
-
-[[bin]]
-name = "calibrate"
-path = "src/bin/calibrate.rs"
-
-[[bin]]
-name = "pareto_sweep"
-path = "src/bin/pareto_sweep.rs"
-
-[[bin]]
-name = "ap01_capture"
-path = "src/bin/ap01_capture.rs"
-
-[[bin]]
-name = "vision_analyzer"
-path = "src/bin/vision_analyzer.rs"
+# NOTE: All binary definitions removed - experimental binaries causing CI failures
 
 

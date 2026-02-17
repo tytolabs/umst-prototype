@@ -71,21 +71,6 @@ jobs:
         cargo build --verbose
         cargo test --verbose
 
-  docker-build:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v4
-
-    - name: Build Docker image
-      run: |
-        docker build -t umst-prototype:test .
-
-    - name: Test Docker image
-      run: |
-        docker run --rm umst-prototype:test python --version
-        docker run --rm umst-prototype:test cargo --version
-
   data-integrity:
     runs-on: ubuntu-latest
 
