@@ -1,0 +1,21 @@
+# Service: submit a material state proposal for thermodynamic validation.
+# The gate enforces Clausius-Duhem admissibility before any robotic action.
+
+float32 cement
+float32 slag
+float32 fly_ash
+float32 water
+float32 coarse_agg
+float32 fine_agg
+float32 age
+float32 temperature
+float32 predicted_strength
+string  dataset
+---
+bool    admissible
+string  verdict
+string  violation
+float32 strength_bound
+float32 physics_strength
+float32 hydration_degree
+float32 w_c_ratio

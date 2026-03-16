@@ -41,6 +41,8 @@ umst-prototype/
 │   └── ...
 ├── src/
 │   └── rust/               # Core Physics Kernel (Rust)
+│       └── core/src/tensors/kleisli.rs  # KleisliArrow admissibility monad
+├── ros2_bridge/            # ROS2 bridge (Python nodes → REST/WS → Rust gate)
 └── tools/                  # Verification & Setup Utilities
 ```
 
@@ -72,6 +74,13 @@ To reproduce the **Generative Design** results (Table 4 & Figure 5):
 ./scripts/benchmark_generative.sh
 ```
 *Output: `results/ssot/design_benchmark_latest.json`*
+
+### Gate Server & ROS2 Bridge
+```bash
+cargo run --release --bin gate_server   # REST gate on port 8765
+```
+The `ros2_bridge/` directory provides a ROS2 Python package bridging the
+gate server to ROS2 topics. See `ros2_bridge/README.md`.
 
 ## Datasets
 We utilize a **Composite Global Benchmark** ($N=16,146$) merging four sources:

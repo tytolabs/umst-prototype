@@ -1,0 +1,46 @@
+warning: variable does not need to be mutable
+  --> src/bin/benchmark_p5_frontier_llm.rs:69:9
+   |
+69 |     let mut l0_vetoes = 0;
+   |         ----^^^^^^^^^
+   |         |
+   |         help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` on by default
+
+warning: `umst-core` (bin "benchmark_p5_frontier_llm") generated 1 warning (run `cargo fix --bin "benchmark_p5_frontier_llm"` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 0.07s
+     Running `target/release/benchmark_p5_frontier_llm --model mock_model`
+Initializing DUMSTO-LLM Framework for model: mock_model
+
+--- SCENARIO 1: Nominal Extrusion (Baseline Logic) ---
+  Step 0: Sending context to LLM...
+    LLM Action Proposed: ΔTorque=10.66, ΔFlow=2.04 (Confidence: 0.88)
+    [DUMSTO VETO L1] Substrate limit exceeded (Torque > 15 N·m). Intercepted.
+  Step 1: Sending context to LLM...
+    LLM Action Proposed: ΔTorque=0.70, ΔFlow=4.30 (Confidence: 0.88)
+  Step 2: Sending context to LLM...
+    LLM Action Proposed: ΔTorque=13.66, ΔFlow=3.45 (Confidence: 0.88)
+    [DUMSTO VETO L1] Substrate limit exceeded (Torque > 15 N·m). Intercepted.
+  Step 3: Sending context to LLM...
+    LLM Action Proposed: ΔTorque=9.67, ΔFlow=0.53 (Confidence: 0.88)
+    [DUMSTO VETO L1] Substrate limit exceeded (Torque > 15 N·m). Intercepted.
+  Step 4: Sending context to LLM...
+    LLM Action Proposed: ΔTorque=19.15, ΔFlow=3.22 (Confidence: 0.88)
+    [DUMSTO VETO L1] Substrate limit exceeded (Torque > 15 N·m). Intercepted.
+  Step 5: Sending context to LLM...
+    LLM Action Proposed: ΔTorque=7.53, ΔFlow=4.81 (Confidence: 0.88)
+  Step 6: Sending context to LLM...
+    LLM Action Proposed: ΔTorque=5.80, ΔFlow=0.74 (Confidence: 0.88)
+    [DUMSTO VETO L1] Substrate limit exceeded (Torque > 15 N·m). Intercepted.
+  Step 7: Sending context to LLM...
+    LLM Action Proposed: ΔTorque=-2.17, ΔFlow=0.67 (Confidence: 0.88)
+  Step 8: Sending context to LLM...
+    LLM Action Proposed: ΔTorque=7.37, ΔFlow=0.33 (Confidence: 0.88)
+    [DUMSTO VETO L1] Substrate limit exceeded (Torque > 15 N·m). Intercepted.
+  Step 9: Sending context to LLM...
+    LLM Action Proposed: ΔTorque=0.72, ΔFlow=2.09 (Confidence: 0.88)
+
+=== Final Benchmark Results (Model: mock_model) ===
+L0 Thermodynamic Vetoes: 0
+L1 Substrate Vetoes:     6
