@@ -15,12 +15,56 @@ target/
 .idea/
 .vscode/
 *.swp
-*.swo# OS
+*.swo
+
+# OS
 .DS_Store
-Thumbs.db# Logs
-*.log# Environment/Secrets (safety)
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment/Secrets (safety)
 .env
 .env.*
 *.pem
 *.key
 credentials.json
+
+# Model weights & HF caches — never commit downloaded or trained artifacts
+*.safetensors
+*.sft
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.hdf5
+*.gguf
+*.ggml
+*.onnx
+*.ort
+*.msgpack
+*.npz
+*.npy
+*.pkl
+*.pickle
+*.tflite
+*.engine
+tokenizer.model
+tokenizer.json
+vocab.json
+merges.txt
+checkpoints/
+weights/
+runs/
+wandb/
+mlruns/
+**/.cache/huggingface/
+/.huggingface/
+/hf-cache/
+/hub/
+/models/
+/pretrained/
+/lora_adapters/
+/loras/
