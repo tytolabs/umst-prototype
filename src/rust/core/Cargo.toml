@@ -18,6 +18,8 @@ reqwest = { version = "0.11", features = ["blocking", "json"] }
 # burn-ndarray = "0.12.1"
 # bincode = { version = "2.0.0-rc.3", features = ["serde"] }
 rand = "0.8"
+# Sibling SSOT — required for `thermodynamic_filter` deprecation shim (see THIN_PROTOTYPE_STATUS.md).
+umst-manifold = { path = "../../../../umst-manifold", default-features = false, features = ["ndarray"] }
 
 instant = "0.1"
 serde-wasm-bindgen = "0.6"
@@ -26,11 +28,24 @@ clap = { version = "4.0", features = ["derive"] }
 chrono = { version = "0.4", features = ["serde"] }
 tokio = { version = "1.0", features = ["full"] }
 
+[features]
+default = ["manifold-gate"]
+# Enables `manifold_gate_shim` module and `manifold_gate_parity` bin (thermodynamic_filter always uses manifold).
+manifold-gate = []
+
 [lib]
 crate-type = ["cdylib", "rlib"]
 
 [[bin]]
 name = "gate_server"
 path = "src/bin/gate_server.rs"
+
+[[bin]]
+name = "gate_dual_fixture"
+path = "src/bin/gate_dual_fixture.rs"
+
+[[bin]]
+name = "manifold_gate_parity"
+path = "src/bin/manifold_gate_parity.rs"
 
 

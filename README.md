@@ -76,11 +76,15 @@ To reproduce the **Generative Design** results (Table 4 & Figure 5):
 *Output: `results/ssot/design_benchmark_latest.json`*
 
 ### Gate Server & ROS2 Bridge
+
+**Canonical gate:** `umst-manifold` on port **8787** (see `docs/GATE_SERVER.md`).  
+Legacy prototype HTTP on **8765** remains for reproduction only:
+
 ```bash
-cargo run --release --bin gate_server   # REST gate on port 8765
+cd src/rust/core && cargo run --release --bin gate_server
 ```
-The `ros2_bridge/` directory provides a ROS2 Python package bridging the
-gate server to ROS2 topics. See `ros2_bridge/README.md`.
+
+The `ros2_bridge/` directory bridges the gate to ROS2 topics; prefer manifold URL **8787**. See `ros2_bridge/README.md` and **`docs/GATE_SERVER.md`**.
 
 ## Datasets
 We utilize a **Composite Global Benchmark** ($N=16,146$) merging four sources:

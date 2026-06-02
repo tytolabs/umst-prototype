@@ -1,0 +1,5 @@
+# Local sibling checkout for crates that depend on git `umst-manifold` (e.g. umst-concrete-cartridge).
+# Copy to config.toml (gitignored) — do not commit config.toml with machine-specific paths in CI repos.
+
+[patch."https://github.com/tytolabs/umst-manifold.git"]
+umst-manifold = { path = "../../../umst-manifold" }

@@ -21,6 +21,8 @@ pub mod safety; // Guardrails needed
 pub mod science;
 // pub mod search;
 pub mod io;
+#[cfg(feature = "manifold-gate")]
+pub mod manifold_gate_shim;
 pub mod tensors;
 // pub mod tests;
 #[cfg(test)]

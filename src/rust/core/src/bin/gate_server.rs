@@ -1,13 +1,12 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2026 Santhosh Shyamsundar, Santosh Prabhu Shenbagamoorthy, and Studio Tyto
 //!
-//! Minimal UMST Gate Server (Original Prototype)
-//! ==============================================
-//! HTTP server exposing the physics kernel's thermodynamic gate via REST.
+//! Legacy prototype HTTP gate (port **8765**). Prefer **`umst-manifold`** `gate_server` on **8787** for SSOT.
+//! See `umst-prototype/docs/GATE_SERVER.md` (when to use, dual-run parity, deprecation).
 //!
-//! Usage:
-//!   cargo run --bin gate_server
-//!   # Listens on http://0.0.0.0:8765
+//! ```text
+//! cargo run -p umst-core --bin gate_server
+//! ```
 //!
 //! Endpoints:
 //!   POST /gate     — thermodynamic check
@@ -136,10 +135,16 @@ fn handle_request(stream: &mut std::net::TcpStream) {
     let _ = stream.write_all(response.as_bytes());
 }
 
+const DEPRECATION_BANNER: &str = "\
+[umst-core gate_server] DEPRECATED for SSOT: use umst-manifold gate_server on port 8787 \
+(UMST_GATE_ADDR). This binary (8765) remains for reproduction and parity only. \
+See umst-prototype/docs/GATE_SERVER.md\n";
+
 fn main() {
+    eprintln!("{DEPRECATION_BANNER}");
     let addr = "0.0.0.0:8765";
     let listener = TcpListener::bind(addr).expect("Failed to bind to port 8765");
-    eprintln!("UMST Gate Server (original) listening on {addr}");
+    eprintln!("UMST Gate Server (legacy prototype) listening on http://{addr}");
 
     for stream in listener.incoming() {
         match stream {
