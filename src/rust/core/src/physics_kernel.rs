@@ -267,7 +267,11 @@ impl PhysicsKernel {
 impl PhysicsKernel {
     /// [CORE] Pure Rust Physics Pipeline
     /// Zero-overhead access for internal agents (RL, Monte Carlo).
-    pub fn compute(tensor: &MixTensor, geometry: Option<&GeometryData>, config: &PhysicsConfig) -> IndustrialResult {
+    pub fn compute(
+        tensor: &MixTensor,
+        geometry: Option<&GeometryData>,
+        config: &PhysicsConfig,
+    ) -> IndustrialResult {
         let start = instant::Instant::now();
 
         // 1. Calculate W/C ratio using calibrated k_scm
@@ -300,12 +304,12 @@ impl PhysicsKernel {
         // Use compute_strength_with_maturity for age-dependent strength
         let scm_ratio = tensor.scm_ratio();
         let age_days = 28.0; // Default to 28 days - MixTensor doesn't store age
-        let temp_c = 20.0;   // Standard curing temperature
-        
+        let temp_c = 20.0; // Standard curing temperature
+
         // Compute age-dependent hydration degree using Parrot's equation
         let alpha = Self::compute_hydration_degree(age_days, temp_c, scm_ratio);
         let air = Self::estimate_air_content(tensor);
-        
+
         // CALIBRATION: Use config.s_intrinsic (default 80.0 for D1, dataset-specific otherwise)
         let strength = if config.enable_strength {
             StrengthEngine::compute_powers(w_c, alpha, air, config.s_intrinsic)

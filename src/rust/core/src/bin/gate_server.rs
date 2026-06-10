@@ -31,7 +31,9 @@ struct GateRequest {
     temperature_c: f32,
 }
 
-fn default_temp() -> f32 { 20.0 }
+fn default_temp() -> f32 {
+    20.0
+}
 
 #[derive(Serialize)]
 struct GateResponse {
@@ -56,29 +58,50 @@ fn handle_gate(body: &str) -> String {
                 physics_strength: 0.0,
                 hydration_degree: 0.0,
                 w_c_ratio: 0.0,
-            }).unwrap();
+            })
+            .unwrap();
         }
     };
 
     let total_cement = req.cement + req.slag + req.fly_ash;
-    let w_c = if total_cement > 0.0 { req.water / total_cement } else { 1.0 };
-    let scm_ratio = if total_cement > 0.0 { (req.slag + req.fly_ash) / total_cement } else { 0.0 };
+    let w_c = if total_cement > 0.0 {
+        req.water / total_cement
+    } else {
+        1.0
+    };
+    let scm_ratio = if total_cement > 0.0 {
+        (req.slag + req.fly_ash) / total_cement
+    } else {
+        0.0
+    };
 
     let alpha = PhysicsKernel::compute_hydration_degree(req.age, req.temperature_c, scm_ratio);
     let air = 0.02;
     let config = PhysicsConfig::default();
     let strength = umst_core::science::strength::StrengthEngine::compute_powers(
-        w_c, alpha, air, config.s_intrinsic,
+        w_c,
+        alpha,
+        air,
+        config.s_intrinsic,
     );
 
     let physics_fc = strength.compressive_strength;
     let admissible = req.predicted_strength <= physics_fc * 1.15;
 
     let (verdict, violation) = if admissible {
-        (format!("ACK: fc_physics={physics_fc:.1} MPa >= predicted={:.1} MPa", req.predicted_strength), None)
+        (
+            format!(
+                "ACK: fc_physics={physics_fc:.1} MPa >= predicted={:.1} MPa",
+                req.predicted_strength
+            ),
+            None,
+        )
     } else {
         (
-            format!("NACK: predicted={:.1} exceeds fc_physics={physics_fc:.1} MPa", req.predicted_strength),
+            format!(
+                "NACK: predicted={:.1} exceeds fc_physics={physics_fc:.1} MPa",
+                req.predicted_strength
+            ),
             Some("clausius_duhem_violation".into()),
         )
     };
@@ -91,23 +114,31 @@ fn handle_gate(body: &str) -> String {
         physics_strength: physics_fc,
         hydration_degree: alpha,
         w_c_ratio: w_c,
-    }).unwrap()
+    })
+    .unwrap()
 }
 
 fn handle_request(stream: &mut std::net::TcpStream) {
     let mut reader = BufReader::new(stream.try_clone().unwrap());
     let mut request_line = String::new();
-    if reader.read_line(&mut request_line).is_err() { return; }
+    if reader.read_line(&mut request_line).is_err() {
+        return;
+    }
 
     let mut headers = Vec::new();
     loop {
         let mut line = String::new();
-        if reader.read_line(&mut line).is_err() { break; }
-        if line.trim().is_empty() { break; }
+        if reader.read_line(&mut line).is_err() {
+            break;
+        }
+        if line.trim().is_empty() {
+            break;
+        }
         headers.push(line);
     }
 
-    let content_length: usize = headers.iter()
+    let content_length: usize = headers
+        .iter()
         .find(|h| h.to_lowercase().starts_with("content-length:"))
         .and_then(|h| h.split(':').nth(1))
         .and_then(|v| v.trim().parse().ok())

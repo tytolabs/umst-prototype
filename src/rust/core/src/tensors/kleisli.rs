@@ -217,17 +217,12 @@ mod tests {
 
         let result = bad.bind(|x| Admissible::pure(x * 100.0));
         assert!(!result.result.admissible);
-        assert_eq!(
-            result.result.violation,
-            Some("Clausius-Duhem".to_string())
-        );
+        assert_eq!(result.result.violation, Some("Clausius-Duhem".to_string()));
     }
 
     #[test]
     fn test_kleisli_arrow_basic() {
-        let double = KleisliArrow::new("double", |x: f32| {
-            Admissible::pure(x * 2.0)
-        });
+        let double = KleisliArrow::new("double", |x: f32| Admissible::pure(x * 2.0));
 
         let result = double.run(21.0);
         assert!(result.result.admissible);

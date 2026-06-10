@@ -53,8 +53,11 @@ impl MonteCarloOptimizer {
             }
 
             // 3. Compute Physics (Shared Logic)
-            let result =
-                PhysicsKernel::compute(&trial, None, &crate::physics_kernel::PhysicsConfig::default());
+            let result = PhysicsKernel::compute(
+                &trial,
+                None,
+                &crate::physics_kernel::PhysicsConfig::default(),
+            );
 
             // 4. Wrap for Output
             // We need to reconstruct the components structure for the frontend

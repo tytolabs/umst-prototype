@@ -119,8 +119,7 @@ impl GuardrailEngine {
     /// We floor at 8.0 MPa (EN 206 C8/10, lowest concrete exposure class).
     pub fn with_s_intrinsic(s_intrinsic: f64) -> Self {
         let mut constraints = PhysicsGuardrails::default();
-        constraints.absolute_min_strength_mpa =
-            (20.0 * s_intrinsic / 240.0).max(8.0);
+        constraints.absolute_min_strength_mpa = (20.0 * s_intrinsic / 240.0).max(8.0);
         GuardrailEngine { constraints }
     }
 
@@ -132,10 +131,7 @@ impl GuardrailEngine {
     /// Returns the clamped delta_wc.
     pub fn clamp_wc(&self, current_wc: f64, delta_wc: f64) -> f64 {
         let proposed = current_wc + delta_wc;
-        let clamped = proposed.clamp(
-            self.constraints.min_wc_ratio,
-            self.constraints.max_wc_ratio,
-        );
+        let clamped = proposed.clamp(self.constraints.min_wc_ratio, self.constraints.max_wc_ratio);
         clamped - current_wc
     }
 

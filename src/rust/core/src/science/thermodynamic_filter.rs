@@ -137,9 +137,7 @@ impl ThermodynamicFilter {
     ) -> AdmissibilityResult {
         let old_s: ThermodynamicStateSnapshot = old_state.into();
         let new_s: ThermodynamicStateSnapshot = new_state.into();
-        self.inner
-            .check_transition(&old_s, &new_s, dt)
-            .into()
+        self.inner.check_transition(&old_s, &new_s, dt).into()
     }
 
     pub fn get_stats(&self) -> String {

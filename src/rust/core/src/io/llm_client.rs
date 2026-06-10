@@ -1,5 +1,5 @@
+use reqwest::{header, Client};
 use serde::{Deserialize, Serialize};
-use reqwest::{Client, header};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct StatePrompt {
@@ -61,11 +61,13 @@ impl LlmClient {
             "temperature": 0.0
         });
 
-        let mut request = self.client.post(&self.base_url)
+        let mut request = self
+            .client
+            .post(&self.base_url)
             .header(header::CONTENT_TYPE, "application/json");
-            
+
         if !self.api_key.is_empty() {
-             request = request.header(header::AUTHORIZATION, format!("Bearer {}", self.api_key));
+            request = request.header(header::AUTHORIZATION, format!("Bearer {}", self.api_key));
         }
 
         let res = request
@@ -79,12 +81,17 @@ impl LlmClient {
             return Err(LlmError::ApiError(error_text));
         }
 
-        let body: serde_json::Value = res.json().await.map_err(|e| LlmError::ParseError(e.to_string()))?;
-        
+        let body: serde_json::Value = res
+            .json()
+            .await
+            .map_err(|e| LlmError::ParseError(e.to_string()))?;
+
         // Extract the content using standard completion schema
         let content_str = body["choices"][0]["message"]["content"]
             .as_str()
-            .ok_or_else(|| LlmError::ParseError("Missing content string in response".to_string()))?;
+            .ok_or_else(|| {
+                LlmError::ParseError("Missing content string in response".to_string())
+            })?;
 
         // Parse the strictly typed action struct
         let action: AgentAction = serde_json::from_str(content_str)

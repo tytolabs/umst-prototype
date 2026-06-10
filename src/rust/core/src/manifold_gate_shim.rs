@@ -12,10 +12,11 @@ use umst_manifold::gate::{
 /// Canonical manifold `/gate` JSON (`admissible`, `codes`, `catalog_hash_hex`).
 pub fn evaluate_canonical_json(body: &str) -> String {
     match serde_json::from_str::<HttpMixProposal>(body) {
-        Ok(proposal) => {
-            serde_json::to_string(&evaluate_http_mix_manifest(&proposal, &HttpGateManifest::default()))
-                .unwrap_or_else(|_| serde_json::to_string(&gate_json_parse_response()).unwrap())
-        }
+        Ok(proposal) => serde_json::to_string(&evaluate_http_mix_manifest(
+            &proposal,
+            &HttpGateManifest::default(),
+        ))
+        .unwrap_or_else(|_| serde_json::to_string(&gate_json_parse_response()).unwrap()),
         Err(_) => serde_json::to_string(&gate_json_parse_response()).unwrap(),
     }
 }

@@ -87,16 +87,16 @@ fn main() {
 
     for case in &bundle.cases {
         let (old, new, dt) = match case {
-            FixtureCase::FromMix { old, new, dt_seconds } => {
-                (mix_to_state(old), mix_to_state(new), *dt_seconds)
-            }
-            FixtureCase::ExplicitSnapshot { old, new, dt_seconds } => {
-                (
-                    snapshot_to_state(old),
-                    snapshot_to_state(new),
-                    *dt_seconds,
-                )
-            }
+            FixtureCase::FromMix {
+                old,
+                new,
+                dt_seconds,
+            } => (mix_to_state(old), mix_to_state(new), *dt_seconds),
+            FixtureCase::ExplicitSnapshot {
+                old,
+                new,
+                dt_seconds,
+            } => (snapshot_to_state(old), snapshot_to_state(new), *dt_seconds),
         };
         let r = filter.check_transition(&old, &new, dt);
         results.push(TransitionResult {
@@ -108,5 +108,8 @@ fn main() {
     }
 
     let out = serde_json::json!({ "results": results });
-    println!("{}", serde_json::to_string(&out).expect("serialize results"));
+    println!(
+        "{}",
+        serde_json::to_string(&out).expect("serialize results")
+    );
 }

@@ -63,7 +63,7 @@ impl GeometryData {
 
         let bounding_volume = width * height * depth;
         let radius = (width.min(height).min(depth)) / 2.0;
-        let volume = (4.0/3.0) * std::f32::consts::PI * radius * radius * radius;
+        let volume = (4.0 / 3.0) * std::f32::consts::PI * radius * radius * radius;
         let surface_area = 4.0 * std::f32::consts::PI * radius * radius;
         let sav_ratio = surface_area / volume;
 
@@ -72,8 +72,8 @@ impl GeometryData {
             volume,
             bounding_volume,
             sav_ratio,
-            complexity: 0.1, // Low complexity for sphere
-            mean_curvature: 1.0 / radius, // For sphere
+            complexity: 0.1,                             // Low complexity for sphere
+            mean_curvature: 1.0 / radius,                // For sphere
             gaussian_curvature: 1.0 / (radius * radius), // For sphere
         }
     }

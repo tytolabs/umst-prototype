@@ -109,11 +109,17 @@ fn test_zero_division_protection() {
         { "id": "agg_fa", "type": "aggregate", "name": "FineAgg", "density": 2600 }
     ]);
 
-    let result_json = PhysicsKernel::compute_industrial(&components.to_string(), &materials.to_string());
+    let result_json =
+        PhysicsKernel::compute_industrial(&components.to_string(), &materials.to_string());
     let response: serde_json::Value = serde_json::from_str(&result_json).unwrap();
 
     // Should return zeros or safe defaults, not crash
-    assert!(response["result"]["hardened"]["f28_compressive"].as_f64().unwrap() >= 0.0);
+    assert!(
+        response["result"]["hardened"]["f28_compressive"]
+            .as_f64()
+            .unwrap()
+            >= 0.0
+    );
     println!(" ✓ Zero division protection working");
 }
 
@@ -145,18 +151,32 @@ fn test_extreme_water_cement_ratios() {
     ]);
 
     // Test low w/c
-    let result_low = PhysicsKernel::compute_industrial(&components_low.to_string(), &materials.to_string());
+    let result_low =
+        PhysicsKernel::compute_industrial(&components_low.to_string(), &materials.to_string());
     let response_low: serde_json::Value = serde_json::from_str(&result_low).unwrap();
-    let strength_low = response_low["result"]["hardened"]["f28_compressive"].as_f64().unwrap();
+    let strength_low = response_low["result"]["hardened"]["f28_compressive"]
+        .as_f64()
+        .unwrap();
 
     // Test high w/c
-    let result_high = PhysicsKernel::compute_industrial(&components_high.to_string(), &materials.to_string());
+    let result_high =
+        PhysicsKernel::compute_industrial(&components_high.to_string(), &materials.to_string());
     let response_high: serde_json::Value = serde_json::from_str(&result_high).unwrap();
-    let strength_high = response_high["result"]["hardened"]["f28_compressive"].as_f64().unwrap();
+    let strength_high = response_high["result"]["hardened"]["f28_compressive"]
+        .as_f64()
+        .unwrap();
 
     // Low w/c should give higher strength than high w/c
-    assert!(strength_low > strength_high, "Low w/c ({}) should give higher strength than high w/c ({})", strength_low, strength_high);
-    println!(" ✓ Extreme W/C ratios handled correctly: Low={:.1}MPa, High={:.1}MPa", strength_low, strength_high);
+    assert!(
+        strength_low > strength_high,
+        "Low w/c ({}) should give higher strength than high w/c ({})",
+        strength_low,
+        strength_high
+    );
+    println!(
+        " ✓ Extreme W/C ratios handled correctly: Low={:.1}MPa, High={:.1}MPa",
+        strength_low, strength_high
+    );
 }
 
 #[test]
@@ -170,17 +190,26 @@ fn test_calibration_bounds() {
     let scm_ratio = (100.0 + 50.0) / (300.0 + 100.0 + 50.0); // ~0.33
 
     // Low s_intrinsic → low strength
-    let strength_low = PhysicsKernel::compute_strength_with_maturity(w_c, age, temp, scm_ratio, 30.0);
+    let strength_low =
+        PhysicsKernel::compute_strength_with_maturity(w_c, age, temp, scm_ratio, 30.0);
     // High s_intrinsic → high strength
-    let strength_high = PhysicsKernel::compute_strength_with_maturity(w_c, age, temp, scm_ratio, 120.0);
+    let strength_high =
+        PhysicsKernel::compute_strength_with_maturity(w_c, age, temp, scm_ratio, 120.0);
 
     // Results should be reasonable (not NaN or infinite)
     assert!(!strength_low.is_nan() && !strength_low.is_infinite());
     assert!(!strength_high.is_nan() && !strength_high.is_infinite());
     assert!(strength_low >= 0.0 && strength_high >= 0.0);
     // Higher s_intrinsic must give higher strength
-    assert!(strength_high > strength_low,
-        "Higher s_intrinsic should give higher strength: low={}, high={}", strength_low, strength_high);
+    assert!(
+        strength_high > strength_low,
+        "Higher s_intrinsic should give higher strength: low={}, high={}",
+        strength_low,
+        strength_high
+    );
 
-    println!(" ✓ Calibration bounds respected: Low={:.2}, High={:.2}", strength_low, strength_high);
+    println!(
+        " ✓ Calibration bounds respected: Low={:.2}, High={:.2}",
+        strength_low, strength_high
+    );
 }

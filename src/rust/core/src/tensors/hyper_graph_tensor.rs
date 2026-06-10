@@ -228,7 +228,10 @@ impl HyperGraphTensor {
             .raw_nodes()
             .iter()
             .filter_map(|node| {
-                if let TensorNode::Geometry { sdf_data, bounds, .. } = &node.weight {
+                if let TensorNode::Geometry {
+                    sdf_data, bounds, ..
+                } = &node.weight
+                {
                     Some(GeometryData::from_sdf_data(sdf_data, bounds))
                 } else {
                     None
@@ -245,13 +248,19 @@ impl HyperGraphTensor {
         }
 
         let mut aggregated = GeometryData {
-            surface_area: geometries.iter().map(|g| g.surface_area).sum::<f32>() / geometries.len() as f32,
+            surface_area: geometries.iter().map(|g| g.surface_area).sum::<f32>()
+                / geometries.len() as f32,
             volume: geometries.iter().map(|g| g.volume).sum::<f32>() / geometries.len() as f32,
-            bounding_volume: geometries.iter().map(|g| g.bounding_volume).sum::<f32>() / geometries.len() as f32,
-            sav_ratio: geometries.iter().map(|g| g.sav_ratio).sum::<f32>() / geometries.len() as f32,
-            complexity: geometries.iter().map(|g| g.complexity).sum::<f32>() / geometries.len() as f32,
-            mean_curvature: geometries.iter().map(|g| g.mean_curvature).sum::<f32>() / geometries.len() as f32,
-            gaussian_curvature: geometries.iter().map(|g| g.gaussian_curvature).sum::<f32>() / geometries.len() as f32,
+            bounding_volume: geometries.iter().map(|g| g.bounding_volume).sum::<f32>()
+                / geometries.len() as f32,
+            sav_ratio: geometries.iter().map(|g| g.sav_ratio).sum::<f32>()
+                / geometries.len() as f32,
+            complexity: geometries.iter().map(|g| g.complexity).sum::<f32>()
+                / geometries.len() as f32,
+            mean_curvature: geometries.iter().map(|g| g.mean_curvature).sum::<f32>()
+                / geometries.len() as f32,
+            gaussian_curvature: geometries.iter().map(|g| g.gaussian_curvature).sum::<f32>()
+                / geometries.len() as f32,
         };
 
         // Recalculate derived properties
