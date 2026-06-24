@@ -26,6 +26,10 @@ The DUMSTO-PPO agent, operating under the constitutional gate, discovered **61 d
 3.  **Thermodynamic Gate:** A "mathematical firewall" that rejects any state transition violating entropy production constraints ($\mathcal{D}_{\text{int}} \ge 0$).
 4.  **DUMSTO-PPO:** A constitutional reinforcement learning agent with 6 reward modes (Balance, Strength, Sustainability, Durability, Cost, Printability).
 
+## umst-core promotion (2026-06)
+
+The canonical **`umst-core`** crate now lives at [`../umst-core/`](../umst-core/) (promoted from `src/rust/core/`). This tree is **retained** for benchmarks, WASM, and historical reproducibility — do not delete.
+
 ## Repository Structure
 ```
 umst-prototype/
