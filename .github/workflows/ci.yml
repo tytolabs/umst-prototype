@@ -61,6 +61,13 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    # Path dep: src/rust/core → ../../../../umst-manifold (sibling of repo root on GHA).
+    - name: Clone umst-manifold sibling for path dependency
+      working-directory: ${{ github.workspace }}/..
+      run: |
+        set -euo pipefail
+        git clone --depth 1 https://github.com/tytolabs/umst-manifold.git umst-manifold
+
     - name: Install Rust
       uses: actions-rust-lang/setup-rust-toolchain@v1
       with:
@@ -126,6 +133,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
+    - name: Clone umst-manifold sibling for path dependency
+      working-directory: ${{ github.workspace }}/..
+      run: |
+        set -euo pipefail
+        git clone --depth 1 https://github.com/tytolabs/umst-manifold.git umst-manifold
 
     - name: Set up Python
       uses: actions/setup-python@v4
