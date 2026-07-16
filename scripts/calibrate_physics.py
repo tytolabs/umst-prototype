@@ -30,7 +30,7 @@ from pathlib import Path
 # RUST-FIRST: Import the canonical physics kernel bridge
 from rust_bridge import call_physics_kernel
 
-# TODO: Phase 5 - This calibration script needs major refactoring:
+# TODO R-exp-calibrate-physics-refactor: Phase 5 - calibration script needs major refactoring:
 # 1. The optimization loop should call Rust kernel with parameter overrides
 # 2. Add --params CLI args to physics_bridge binary for parameter injection
 # 3. Replace scipy.optimize with calls to Rust optimization (if available)
