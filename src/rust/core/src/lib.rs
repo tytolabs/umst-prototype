@@ -29,8 +29,8 @@ pub mod tensors;
 pub mod tests_physics;
 // pub mod trust;
 // pub mod validation;
-// pub mod metrics; // TODO: Implement metrics module
-// pub mod vision; // TODO: Implement vision module
+// pub mod metrics; // TODO R-doc-metrics: Implement metrics module
+// pub mod vision; // TODO R-doc-vision: Implement vision module
 
 // Re-export core types
 pub use science::rheology::CartridgeRegistry;
